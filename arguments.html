@@ -1,0 +1,28 @@
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title></title>
+	<!-- 测试被被jquery remove删掉又重新append的dom是否还保存已注册的事件 -->
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		var fun1=function(){
+			var meFun=arguments.callee;
+			alert(meFun.toString());
+			alert(meFun.arguments.length);
+			alert(meFun.arguments===fun1.arguments);	//firefox返回false，ie返回true
+			alert(meFun.arguments===arguments);	//firefox返回false，ie返回true
+
+			var innerFn=function(){
+				alert(arguments.callee.caller.toString());
+				alert(innerFn.caller);
+			};
+			innerFn();
+			alert(fun1.caller);
+		};
+		fun1(1,2,3);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

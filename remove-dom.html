@@ -1,0 +1,20 @@
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title></title>
+	<!-- 测试被被jquery remove删掉又重新append的dom是否还保存已注册的事件 -->
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			var testJq=$('#test');
+			testJq.click(function(){
+				alert('success');
+			});
+			//testJq.remove().appendTo('body');
+		});
+	</script>
+</head>
+<body>
+	<div id="test">删掉又重新append</div>
+</body>
+</html>

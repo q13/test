@@ -1,0 +1,26 @@
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title></title>
+	<!-- 测试被被jquery remove删掉又重新append的dom是否还保存已注册的事件 -->
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			var fun1=function(){
+				var count=0;
+				return function(x){
+					count=count+x;
+					return count;
+				};
+			};
+			var cfun1=fun1();
+			alert(cfun1(1));
+			var cfun2=fun1();	//内部count局部变量不会被释放
+			alert(cfun1(1));
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
