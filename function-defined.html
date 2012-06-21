@@ -1,0 +1,29 @@
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title>测试函数的两种定义方式</title>
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		(function(){
+			var isTrue=true;
+			if(isTrue){
+				//fun1();	//这里调用fun1会出现fun1 is undefined提示，因为fun1不能在解释期提升位置(if语句的存在使得fun1只能在运行期定义)
+				function fun1(){
+					alert(1);
+				}
+			}
+			fun2();	//fun2安全执行
+			function fun2(){	//fun2可在解释期提升位置
+				alert(2);
+			}
+			//fun3();	
+			var fun3=function(){	//匿名函数也无法提升位置
+				alert(3);
+			};
+		}());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
