@@ -1,0 +1,64 @@
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title></title>
+	<!-- 一维数组转化为树状结构 -->
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		(function(){
+			var data=[{
+				parentId:"0",
+				id:"1",
+				name:"二级0"
+			},{
+				parentId:"0",
+				id:"2",
+				name:"二级1"
+			},{
+				parentId:"0",
+				id:"3",
+				name:"二级2"
+			},{
+				parentId:"2",
+				id:"4",
+				name:"三级0"
+			},{
+				id:"0",
+				name:"root"
+			}];
+			var atot=function(rootId,data){
+				var doFn=function(parentId){
+					var tmpArr = [];
+					for (var i=0; i < data.length; i++) {
+						if(data[i].parentId==parentId){
+							tmpArr.push($.extend({
+								child:arguments.callee(data[i].id)
+							},data[i]));
+							data.splice(i,1);
+							i--;
+						}
+					}
+					return tmpArr;
+				};	
+				var i,len,treeData={
+					child:[]
+				};
+				for(i=0;i<data.length;i++){
+					if(data[i].id==rootId){
+						$.extend(treeData,data[i]);
+						data.splice(i,1);
+						i--;
+					}
+				}
+				treeData.child=doFn(rootId);
+				return treeData;
+			};
+			var readyData=atot("0",data);
+			alert(readyData);
+		}());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
