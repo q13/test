@@ -1,0 +1,32 @@
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title></title>
+	<!-- ECMA-262 (in SpiderMonkey)-->
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		var o={};	//由Object构建
+		alert(o.__proto__===Object.prototype);	//true
+		alert(Function.__proto__===Function.prototype);	//true,函数的原型是个特殊的对象,并且Function的__proto__指向Function.prototype(特殊的!只有Function对象的父原型(__.proto__)和Function函数的原型通过Function结构体产生瓜葛)
+		alert(Object.__proto__===Function.prototype);	//true
+		alert(Object.__proto__===Object.prototype);	//false 
+		alert(Object.prototype.__proto__===null);	//true,最基础的对象是null
+
+		//所有函数对象的__proto__都指向Function.prototype,包括Function,包括Object,也包括其他自定义函数，
+		//Function.prototype.__proto__===Object.prototype
+		//Object.prototype.__proto__===null
+		//Function和Object是预定义的两种类型函数
+		//Object通过new运算符产生自定义对象
+		//Function通过new运算符产生自定义函数
+		//由Object产生的自定义对象的__proto__指向Object.prototype
+		//由自定义函数产生的自定义对象的_proto__指向此自定义函数
+		//
+		//Function和Object只是符号变量
+		//
+		//结论"一切皆对象，函数是第一型"
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
