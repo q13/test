@@ -1,0 +1,24 @@
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title>正则</title>
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		(function(){
+			var re1 = /.*bbb/g;//贪婪
+			var re2 = /.*?bbb/g;//惰性
+			//  var re3 = /.*+bbb/g;//支配性,javascript不支持，IE与所有最新的标准浏览器都报错
+			alert(re1.test("abbbaabbbaaabbbb1234")+"");//true
+			alert(re1.exec("abbbaabbbaaabbbb1234")+"");//null
+			alert("abbbaabbbaaabbbb1234".match(re1)+"");//abbbaabbbaaabbbb
+			 
+			alert(re2.test("abbbaabbbaaabbbb1234")+"");//true
+			alert(re2.exec("abbbaabbbaaabbbb1234")+"");//aabbb
+			alert("abbbaabbbaaabbbb1234".match(re2)+"");//abbb,aabbb,aaabbb
+		}());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
