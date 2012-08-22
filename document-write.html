@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title></title>
+	<!-- 测试被被jquery remove删掉又重新append的dom是否还保存已注册的事件 -->
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		document.write('test1');
+		//document.close();	//不需要close
+		window.onload=function(){
+			//document.write('test3');	//将会覆盖已有文档
+			var w = window.open();  // 打开新的窗口，获取其document对象，输出文档内容
+		    var d = w.document;
+		    d.open();
+		    d.write("<h1>hello world</h1>");
+		    d.close();
+		    d.open();
+		    d.write("<h1>hello world2</h1>");
+		    d.write("<h1>hello world3</h1>");
+		    d.close();	//必须close，否则会一直显示装载动画
+		};
+	</script>
+</head>
+<body>
+	已有内容
+	<script type="text/javascript">
+		document.write('test2');
+	</script>
+</body>
+</html>

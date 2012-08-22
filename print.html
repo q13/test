@@ -5,20 +5,34 @@
     <title>MDN Example</title>  
     <script type="text/javascript">  
       function printPage (sURL) {  
-        var oHiddFrame = document.createElement("iframe");  
-        oHiddFrame.src = sURL;  
-        oHiddFrame.style.visibility = "hidden";  
-        oHiddFrame.style.position = "fixed";  
-        oHiddFrame.style.right = "0";  
-        oHiddFrame.style.bottom = "0";  
-        document.body.appendChild(oHiddFrame);  
-        oHiddFrame.contentWindow.onload = oHiddFrame.contentWindow.print;  
-        oHiddFrame.contentWindow.onafterprint = function () { document.body.removeChild(oHiddFrame); };  
+        //var oHiddFrame = document.createElement("iframe");  
+        //oHiddFrame.src = sURL;  
+        //oHiddFrame.style.visibility = "hidden";  
+        //oHiddFrame.style.position = "fixed";  
+        //oHiddFrame.style.right = "0";  
+       // oHiddFrame.style.bottom = "0";  
+       //oHiddFrame.contentWindow.onload =function(){
+         // oHiddFrame.contentWindow.document.body=innerHTML='fewfewf';
+        //  oHiddFrame.contentWindow.print();
+       // };
+        //document.body.appendChild(oHiddFrame);  
+        //oHiddFrame.contentWindow.onload = oHiddFrame.contentWindow.print;  
+
+       // oHiddFrame.contentWindow.onafterprint = function () { document.body.removeChild(oHiddFrame);};  
+        var ifr=document.getElementById('test'),
+            ifr2=document.getElementById('test2');
+        ifr.contentWindow.document.body.innerHTML='fewfewfwef';
+        ifr.focus();
+        ifr.contentWindow.print();
+        ifr2.contentWindow.print();
       }  
     </script>  
   </head>  
     
   <body>  
-    <p><span onclick="printPage('print-page.html');" style="cursor:pointer;text-decoration:underline;color:#0000ff;">Print external page!</span></p>  
+    <p><span onclick="printPage('print-page.html');" style="cursor:pointer;text-decoration:underline;color:#0000ff;">Print external page!</span></p> 
+    <button onclick="printPage();">测试</button>
+    <iframe id="test" src="print-page.html" frameborder="0"></iframe> 
+    <iframe id="test2" src="print-page.html" frameborder="0"></iframe> 
   </body>  
   </html>  

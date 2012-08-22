@@ -8,13 +8,26 @@
 			var re1 = /.*bbb/g;//贪婪
 			var re2 = /.*?bbb/g;//惰性
 			//  var re3 = /.*+bbb/g;//支配性,javascript不支持，IE与所有最新的标准浏览器都报错
-			alert(re1.test("abbbaabbbaaabbbb1234")+"");//true
-			alert(re1.exec("abbbaabbbaaabbbb1234")+"");//null
-			alert("abbbaabbbaaabbbb1234".match(re1)+"");//abbbaabbbaaabbbb
+			//alert(re1.test("abbbaabbbaaabbbb1234")+"");//true
+			//alert(re1.exec("abbbaabbbaaabbbb1234")+"");//null
+			//alert("abbbaabbbaaabbbb1234".match(re1)+"");//abbbaabbbaaabbbb
 			 
-			alert(re2.test("abbbaabbbaaabbbb1234")+"");//true
-			alert(re2.exec("abbbaabbbaaabbbb1234")+"");//aabbb
-			alert("abbbaabbbaaabbbb1234".match(re2)+"");//abbb,aabbb,aaabbb
+			//alert(re2.test("abbbaabbbaaabbbb1234")+"");//true
+			//alert(re2.exec("abbbaabbbaaabbbb1234")+"");//aabbb
+			//alert("abbbaabbbaaabbbb1234".match(re2)+"");//abbb,aabbb,aaabbb
+
+			//分组+量词
+			//alert(/(dog){2}/.test("dogdog"))//true
+			//分组+范围
+			//alert("baddad".match(/([bd]ad)*/))//baddad,dad
+			//分组+分组
+			//alert("mon and dad".match(/(mon( and dad)?)/))//mon and dad,mon and dad, and dad
+
+			//去除左右空格
+			String.prototype.trim=function(){
+				return this.replace(/^\s+|\s+$/g,'');
+			};
+			alert('\\'+' f   fefew   fewfew            '.trim()+'\\');
 		}());
 	</script>
 </head>
