@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    	<title>instanceof and typeof</title>  
+    	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+    	<script type="text/javascript">
+    		(function(){
+    			var Cls=function(){},
+    				Cls2=function(){};
+    			var obj1=new Cls();
+    			alert(obj1 instanceof Cls);	//true
+    			alert(obj1 instanceof Object);	//true
+    			Cls.prototype={};	//prototype更换了
+    			alert(obj1 instanceof Cls);	//false
+    			alert(obj1 instanceof Object);	//true
+    			Cls.prototype=new Cls2();
+    			alert(obj1 instanceof Cls2);	//false
+    			alert(new Cls() instanceof Cls2);	//true，新创建的Cls对象将被认为是Cls2的实例
+
+    			alert(typeof obj1);	//object 第一个字母小写
+    			alert(typeof window);	//object
+    			alert(window.toString());	//[object Window]
+
+    			//for in 循环将会枚举原生链，用hasOwnProperty过滤
+    		}());
+    	</script>	
+	</head>
+	<body>
+		
+	</body>
+</html>
