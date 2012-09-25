@@ -1,0 +1,26 @@
+<!DOCTYPE html>  
+<html>  
+  <head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+    <title>prototype循环引用</title>  
+    <script type="text/javascript">
+    	var C1=function(){
+    		this.a=1;
+    	},
+		C2=function(){
+			this.a=2;
+			this.b=2;
+		};
+    	var c1,c2=new C2(),c3;
+    	C1.prototype=c2;
+    	c1=new C1();
+    	C2.prototype=c1;
+    	alert(c2.__proto__===c1);
+    	c3=new C2();
+    	var result;	//不会产生循环引用个问题，因为new生成的object都是独一无二的
+    </script>
+  </head>  
+  <body>  
+      
+  </body>  
+</html>  
