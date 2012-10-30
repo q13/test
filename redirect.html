@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	 <meta charset="utf-8" />
+	<title></title>
+	<!-- 测试被被jquery remove删掉又重新append的dom是否还保存已注册的事件 -->
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7/jquery.min.js" ></script>
+	<script type="text/javascript">
+		alert(1);
+		setTimeout(function(){
+			location.href=location.pathname+'#test';	//加###不会产生跳转
+		},3000);
+	</script>
+</head>
+<body>
+	已有内容
+	<script type="text/javascript">
+		document.write('test2');
+	</script>
+</body>
+</html>
