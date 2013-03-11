@@ -4,7 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
     <title>变量scope测试</title>  
     <script type="text/javascript">
-    	alert(a);	//报错
+    	//alert(a);	//报错
+    	alert(typeof(a)); //alert function
+    	var a=1;	//忽略声明，直接赋值给a
+    	alert(typeof(a));	//alert number
+    	function a(){	//最前	
+
+    	}
+    	alert(typeof(a));	//alert nubmer
     </script>
   </head>  
   <body>  
